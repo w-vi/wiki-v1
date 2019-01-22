@@ -89,7 +89,7 @@ userSchema.statics.processProfile = (profile) => {
     new: true
   }).then((user) => {
     // Handle unregistered accounts
-    if (!user && profile.provider !== 'local' && (appconfig.auth.defaultReadAccess || profile.provider === 'ldap' || profile.provider === 'azure')) {
+    if (!user && profile.provider !== 'local' && (appconfig.auth.defaultReadAccess || profile.provider === 'ldap' || profile.provider === 'azure' || || profile.provider === 'slack')) {
       let nUsr = {
         email: primaryEmail,
         provider: profile.provider,
